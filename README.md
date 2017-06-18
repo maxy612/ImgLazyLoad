@@ -14,7 +14,8 @@
       errorImg: './images/error1.jpg', // 当加载图片出错时，显示的默认加载图片
       defaultImg: './images/loading.gif' // 图片开始加载到加载出来临时显示的图片
   });
-
-  - 可以通过LazyLoad.check检查图片列表，具体用法可查看test中的index.html
 ```
+### 备注
+  - 可以通过LazyLoad.check检查图片列表，具体用法可查看test中的index.html
+  - [demo] (https://maxycode.github.io/ImgLazyLoad/test/)
 
