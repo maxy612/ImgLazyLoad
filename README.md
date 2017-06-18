@@ -17,5 +17,5 @@
 ```
 ### 备注
   - 可以通过LazyLoad.check检查图片列表，具体用法可查看test中的index.html
-  - [demo] (https://maxycode.github.io/ImgLazyLoad/test/)
+  - [demo](https://maxycode.github.io/ImgLazyLoad/test/)
 
