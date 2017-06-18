@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            body {
+                width: 3000px;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+            img {
+                display: inline-block;
+                width: 200px;
+                height: 200px;
+                margin-right: 20px;
+            }
+            p {
+                display: inline-block;
+                width: 200px;
+                height: 200px;
+                margin-right: 20px;                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img lazyimg="https://i.ytimg.com/vi/wiV5jqYp2G8/maxresdefault.jpg" />
+            <img lazyimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlGcK2lGmfG-gBh0CEmxi6Qdg8hpl-eZdhIuaBiVOxn8r8fK477g" />
+            <img lazyimg="http://okp-cdn.okayplayer.com/wp-content/uploads/2014/10/flying-lotus-ready-err-not-video-main.jpeg" />
+            <img lazyimg="http://media.npr.org/assets/img/2016/06/30/gettyimages-3420785-7429aa03b6c1f1e08389853854a6f23051e8649a-s900-c85.jpg" />
+            <img lazyimg="https://i.ytimg.com/vi/DFdMTQ_Q7zI/maxresdefault.jpg" />
+            <img lazyimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMiVSpjgSgDmSwP-63GJrfXNjHSWzGMC-HQ_rXRgEGja8Va7TN" />
+            <img lazyimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeNJKEUXPV4U5Vonk_UG0WUOlp0ve7TfMrfOI0wd8_trT3NNWqDw" />
+            <img lazyimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7tDskUa9uYak61prXURuejcF8XxUjFNTEZnfH_v-y_mIkUvth" />
+            <img lazyimg="https://i-msdn.sec.s-msft.com/dynimg/IC8596.gif" />
+            <img lazyimg="http://cdn4.wpbeginner.com/wp-content/uploads/2016/09/error404wpposts.png" />
+            <img lazyimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrxqKJjH8uPQEsFSHp2eutZT26GS88fdQYA7WZSU7DAldzsQ92aQ" />
+            <img lazyimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVIPol-y9oYFxuopG53JWYu0nlOjgfiugOGEmMnWruvHpZpmA3" />
+            <img lazyimg="http://cdn.wpbeginner.com/wp-content/uploads/2014/02/redirectlooperror1.png" />
+            <p lazyimg="http://imgsrc.baidu.com/imgad/pic/item/caef76094b36acaf0accebde76d98d1001e99ce7.jpg"></p>
+        </div>
+        <script type="text/javascript" src="./../src/lazyload.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                var LazyLoad = new LazyLoader({
+                    parent: '.container',
+                    target: ['img', 'p'],
+                    direction: 'row',
+                    errorCol: '#ff0',
+                    errorImg: './images/error1.jpg',
+                    defaultImg: './images/loading.gif'
+                });
+
+                var data = [
+                    'http://img.bimg.126.net/photo/DCi7Q__VN3NJ_63cq7sosA==/3439905690381537164.jpg',
+                    'http://pic41.nipic.com/20140529/18243620_101015342117_2.gif',
+                    'http://pic39.nipic.com/20140318/496038_202510516000_2.jpg',
+                    'http://pic41.nipic.com/20140507/18602184_142854861000_2.jpg',
+                    'http://img.taopic.com/uploads/allimg/120423/107913-12042323220753.jpg'
+                ];
+
+                // 加载更多模拟
+                window.addEventListener('scroll', function () {
+                    if ((window.scrollX + document.documentElement.clientWidth) >= (document.documentElement.offsetWidth - 10)) {
+                        for (var i = 0; i < data.length; i++) {
+                            createImg('.container', data[i]);
+                        }
+
+                        LazyLoad.check();
+                    }
+                }, false);
+
+
+                function createImg (oParent, imgUrl) {
+                    var oPar = document.querySelector(oParent) || document.querySelector('body');
+                    var oImg = document.createElement('img');
+                    oImg.setAttribute('lazyimg', imgUrl);
+                    oPar.appendChild(oImg);
+                }
+
+            }
+        </script>
+    </body>
+</html>
