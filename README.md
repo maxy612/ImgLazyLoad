@@ -10,7 +10,8 @@
  var LazyLoad = new LazyLoader({
       parent: '.container', // 图片列表的容器，默认是body
       target: ['img', 'p'], // 图片列表的元素，默认是img，当为其它标签时，设为其背景
-      errorCol: '#ff0', // 当加载图片出错时，显示的背景颜色，用于非img元素
+      errorCol: '#ff0', // 当加载图片出错时，显示的背景颜色，用于非img元素，默认红色
+      throttle: 1000, // 滚动检测的时间间隔，单位为毫秒。 默认为500
       errorImg: './images/error1.jpg', // 当加载图片出错时，显示的默认加载图片
       defaultImg: './images/loading.gif' // 图片开始加载到加载出来临时显示的图片
   });

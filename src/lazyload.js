@@ -6,6 +6,7 @@
  * 	3. errorImg 加载出错的默认图片
  * 	4. errorCol 加载出错的默认背景色
  * 	5. defaultImg 图片加载前的默认图片
+ * 	6. throttle 图片懒加载检测滚动的时间间隔
  */
 
 function LazyLoader (opts) {
@@ -17,6 +18,7 @@ function LazyLoader (opts) {
 	this.defaultImg = opts.defaultImg || './images/loading.gif';
 	this.timer = null;
 	this.opts = opts;
+	this.throttle = opts.throttle || 500;
 	this.init(opts);
 
 	if (this.nodes.length > 0) {
@@ -33,7 +35,7 @@ function LazyLoader (opts) {
 			clearTimeout(_this.timer);
 			_this.timer = null;
 			_this.render();
-		}, 500);
+		}, _this.throttle);
 	}
 
 	if (window.addEventListener) {
